@@ -1,21 +1,16 @@
-📱 Rodify – Your All-in-One Car Marketplace
-Rodify is a powerful and user-friendly mobile app built with Flutter that connects car buyers, sellers, and service providers all in one platform. Whether you're looking to buy a new ride, sell your old car, or find a reliable repair service — Rodify is your trusted companion on the road.
+# car_system
 
-🚗 Key Features:
-Buy New & Used Cars: Browse a wide range of vehicles with detailed specs, pricing, and seller info.
+A new Flutter project.
 
-Sell Your Car Fast: Post your car for sale with photos, descriptions, and pricing — reach potential buyers instantly.
+## Getting Started
 
-Car Repair Services: Find and book nearby auto repair shops and service providers.
+This project is a starting point for a Flutter application.
 
-Smart Filters & Search: Easily find cars by brand, model, year, price range, or location.
+A few resources to get you started if this is your first Flutter project:
 
-Secure Messaging: Chat directly with buyers, sellers, or service providers through the in-app messaging system.
+- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
+- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-Favorites & Watchlist: Save cars or services you’re interested in and get notified of updates.
-
-🔧 Built with Flutter
-Rodify delivers a smooth, cross-platform experience with a beautiful UI and fast performance across both Android and iOS devices.
-
-🚀 Get Started Today!
-Download Rodify and take control of your car buying, selling, and servicing needs — all from the palm of your hand.
+For help getting started with Flutter development, view the
+[online documentation](https://docs.flutter.dev/), which offers tutorials,
+samples, guidance on mobile development, and a full API reference.
