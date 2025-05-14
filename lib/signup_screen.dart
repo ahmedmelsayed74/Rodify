@@ -10,8 +10,12 @@ class SignUp extends StatefulWidget {
 }
 
 class _SignUpState extends State<SignUp> {
-  final TextEditingController _loginController = TextEditingController();
+  final TextEditingController _nameController = TextEditingController();
+  final TextEditingController _addressController = TextEditingController();
+  final TextEditingController _phoneController = TextEditingController();
+  final TextEditingController _usernameController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,57 +35,68 @@ class _SignUpState extends State<SignUp> {
                 child: BackdropFilter(
                   filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10), // Blur intensity
                   child: Container(
-                    width: MediaQuery.of(context).size.width*0.9,
-                    height: MediaQuery.of(context).size.height*0.83,
+                    width: MediaQuery.of(context).size.width * 0.9,
+                    height: MediaQuery.of(context).size.height * 0.83,
                     color: Colors.cyanAccent.withOpacity(0.3), // Background color with transparency
                     child: Column(
                       children: [
-                        Text('Roadify',
+                        Text(
+                          'Roadify',
                           style: TextStyle(
-                              color:Colors.white,fontSize: 60,fontWeight: FontWeight.bold),
+                              color: Colors.white,
+                              fontSize: 60,
+                              fontWeight: FontWeight.bold),
                         ),
                         defaultEditText(
                           hintText: 'Full Name',
-                          controller: _loginController,
+                          controller: _nameController,
                         ),
                         defaultEditText(
                           hintText: 'Address',
-                          controller: _loginController,
+                          controller: _addressController,
                         ),
                         defaultEditText(
                           hintText: 'Phone',
-                          controller: _loginController,
+                          controller: _phoneController,
                         ),
                         defaultEditText(
                           hintText: 'User Name',
-                          controller: _loginController,
+                          controller: _usernameController,
                         ),
                         defaultEditText(
                           hintText: 'Password',
                           controller: _passwordController,
                         ),
                         ElevatedButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            // هنا يمكنك إضافة منطق التسجيل أو التحقق من البيانات
+                          },
                           style: ElevatedButton.styleFrom(
                             backgroundColor: Colors.black,
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(30),
                             ),
-                            padding: EdgeInsets.symmetric(horizontal: 100, vertical: 10),
+                            padding: EdgeInsets.symmetric(
+                                horizontal: 100, vertical: 10),
                           ),
-                          child: Text("Sign Up",
-                            style: TextStyle(fontSize: 16,color: Colors.white),
+                          child: Text(
+                            "Sign Up",
+                            style: TextStyle(fontSize: 16, color: Colors.white),
                           ),
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Text('Already have an account?',style: TextStyle(color: Colors.grey[300]),),
+                            Text(
+                              'Already have an account?',
+                              style: TextStyle(color: Colors.grey[300]),
+                            ),
                             TextButton(
-                                onPressed: (){
+                                onPressed: () {
                                   Navigator.of(context).pop();
                                 },
-                                child: Text('Login',style: TextStyle(color: Colors.white))),
+                                child: Text('Login',
+                                    style: TextStyle(color: Colors.white))),
                           ],
                         ),
                       ],
@@ -96,4 +111,5 @@ class _SignUpState extends State<SignUp> {
     );
   }
 }
+
 
