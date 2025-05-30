@@ -41,23 +41,23 @@ class _SignUpState extends State<SignUp> {
                               color:Colors.white,fontSize: 60,fontWeight: FontWeight.bold),
                         ),
                         defaultEditText(
-                          hintText: 'Full Name',
+                          hintText: 'الاسم بالكامل',
                           controller: _loginController,
                         ),
                         defaultEditText(
-                          hintText: 'Address',
+                          hintText: 'العنوان',
                           controller: _loginController,
                         ),
                         defaultEditText(
-                          hintText: 'Phone',
+                          hintText: 'رقم التليفون',
                           controller: _loginController,
                         ),
                         defaultEditText(
-                          hintText: 'User Name',
+                          hintText: 'اسم المستخدم',
                           controller: _loginController,
                         ),
                         defaultEditText(
-                          hintText: 'Password',
+                          hintText: 'كلمة السر',
                           controller: _passwordController,
                         ),
                         ElevatedButton(
@@ -69,7 +69,7 @@ class _SignUpState extends State<SignUp> {
                             ),
                             padding: EdgeInsets.symmetric(horizontal: 100, vertical: 10),
                           ),
-                          child: Text("Sign Up",
+                          child: Text("انشاء حساب",
                             style: TextStyle(fontSize: 16,color: Colors.white),
                           ),
                         ),
