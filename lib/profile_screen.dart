@@ -66,13 +66,13 @@ class ProfileScreen extends StatelessWidget {
     return Column(
       children: [
         Text(
-          "Ahmed Samy",
+          "احمد عثمان",
           style: TextStyle(
               color: Colors.white, fontSize: 22, fontWeight: FontWeight.bold),
         ),
         SizedBox(height: 5),
         Text(
-          "ahmed.samy@email.com",
+          "ahmed.othman99@email.com",
           style: TextStyle(color: Colors.white70, fontSize: 16),
         ),
       ],
@@ -82,12 +82,12 @@ class ProfileScreen extends StatelessWidget {
   Widget _buildProfileOptions(BuildContext context) {
     return Column(
       children: [
-        _buildOptionTile(Icons.person, "Edit Profile", () {}),
-        _buildOptionTile(Icons.security, "Privacy Settings", () {}),
-        _buildOptionTile(Icons.payment, "Payment Methods", () {}),
-        _buildOptionTile(Icons.notifications, "Notification Settings", () {}),
-        _buildOptionTile(Icons.help, "Help & Support", () {}),
-        _buildOptionTile(Icons.logout, "Logout", () {
+        _buildOptionTile(Icons.person, "تعديل الحساب", () {}),
+        _buildOptionTile(Icons.security, "اعدادات الخصوصية", () {}),
+        _buildOptionTile(Icons.payment, "طرق الدفع", () {}),
+        _buildOptionTile(Icons.notifications, "اعدادات الاشعارات", () {}),
+        _buildOptionTile(Icons.help, "المساعدة والدعم", () {}),
+        _buildOptionTile(Icons.logout, "تسجيل خروج", () {
           _showLogoutConfirmation(context);
         }, isLogout: true),
       ],
@@ -119,16 +119,16 @@ class ProfileScreen extends StatelessWidget {
       context: context,
       builder: (context) => AlertDialog(
         backgroundColor: Colors.black,
-        title: Text("Logout", style: TextStyle(color: Colors.white)),
-        content: Text("Are you sure you want to logout?",
+        title: Text("تسجيل الخروج", style: TextStyle(color: Colors.white)),
+        content: Text("هل انت متاكد من تسجيل الخروج؟",
             style: TextStyle(color: Colors.white70)),
         actions: [
           TextButton(
-            child: Text("Cancel", style: TextStyle(color: Colors.white)),
+            child: Text("الغاء", style: TextStyle(color: Colors.white)),
             onPressed: () => Navigator.pop(context),
           ),
           TextButton(
-            child: Text("Logout", style: TextStyle(color: Colors.red)),
+            child: Text("تسجيل الخروج", style: TextStyle(color: Colors.red)),
             onPressed: () {
               Navigator.pop(context);
               Navigator.of(context).push(
