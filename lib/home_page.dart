@@ -6,106 +6,89 @@ import 'package:google_nav_bar/google_nav_bar.dart';
 
 import 'maintenance_screen.dart';
 
-class HomeScreen extends StatefulWidget {
+class الشاشةالرئيسية extends StatefulWidget {
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  State<الشاشةالرئيسية> createState() => _حالة_الشاشةالرئيسية();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
-  List<String>appTitle = [
-    'Cars',
-    'Auto Parts',
-    'Maintenance',
-    'Profile',
+class _حالة_الشاشةالرئيسية extends State<الشاشةالرئيسية> {
+  List<String> عناوين_التطبيق = [
+    'السيارات',
+    'قطع الغيار',
+    'الصيانة',
+    'الملف الشخصي',
   ];
 
-  List<Widget>appScreens = [
+  List<Widget> شاشات_التطبيق = [
     CarScreen(),
     AutoPartScreen(),
     MaintenanceScreen(),
     ProfileScreen(),
   ];
 
-  int index = 0;
+  int المؤشر = 0;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.black,
-      bottomNavigationBar:Padding(
-        padding: const EdgeInsets.only(right: 10,left: 10,bottom:20,top:10),
+      bottomNavigationBar: Padding(
+        padding: const EdgeInsets.only(right: 10, left: 10, bottom: 20, top: 10),
         child: GNav(
-          onTabChange: (val){
+          onTabChange: (القيمة) {
             setState(() {
-              index = val;
+              المؤشر = القيمة;
             });
           },
-            tabBorderRadius: 15,
-           // tabActiveBorder: Border.all(color: Colors.cyanAccent, width: 1), // tab button border
-           // tabBorder: Border.all(color: Colors.white, width: 1), // tab button border
-           // tabShadow: [BoxShadow(color: Colors.grey.withOpacity(0.5), blurRadius: 8)], // tab button shadow
-            curve: Curves.easeOutExpo, // tab animation curves
-            duration: Duration(milliseconds: 400), // tab animation duration
-            gap: 8, // the tab button gap between icon and text
-            color: Colors.white, // unselected icon color
-            activeColor: Colors.white, // selected icon and text color
-            iconSize: 24, // tab button icon size
-            tabBackgroundColor: Colors.grey.withOpacity(0.1), // selected tab background color
-            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 5), // navigation bar padding
-            tabs: [
-              GButton(
-                icon: Icons.directions_car_outlined,
-                text: appTitle[0],
-              ),
-              GButton(
-                icon: Icons.home_repair_service_outlined,//Icons.flash_auto_outlined,
-                text: appTitle[1],
-              ),
-              GButton(
-                icon: Icons.build_outlined,
-                text: appTitle[2],
-              ),
-              GButton(
-                icon:Icons.person_outline,
-                text: appTitle[3],
-              )
-            ]
+          tabBorderRadius: 15,
+          curve: Curves.easeOutExpo,
+          duration: Duration(milliseconds: 400),
+          gap: 8,
+          color: Colors.white,
+          activeColor: Colors.white,
+          iconSize: 24,
+          tabBackgroundColor: Colors.grey.withOpacity(0.1),
+          padding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+          tabs: [
+            GButton(
+              icon: Icons.directions_car_outlined,
+              text: عناوين_التطبيق[0],
+            ),
+            GButton(
+              icon: Icons.home_repair_service_outlined,
+              text: عناوين_التطبيق[1],
+            ),
+            GButton(
+              icon: Icons.build_outlined,
+              text: عناوين_التطبيق[2],
+            ),
+            GButton(
+              icon: Icons.person_outline,
+              text: عناوين_التطبيق[3],
+            )
+          ],
         ),
       ),
-      /* CurvedNavigationBar(
-        backgroundColor: Colors.blueAccent,
-        items: <Widget>[
-          Icon(Icons.directions_car_outlined, size: 30),
-          Icon(Icons.flash_auto_outlined, size: 30),
-          Icon(Icons.car_repair_outlined, size: 30),
-          Icon(Icons.person_outline, size: 30),
-        ],
-        onTap: (index) {
-          //Handle button tap
-        },
-      ),BottomNavigationBar(
-          items: [
-            BottomNavigationBarItem(icon: Icon(Icons.directions_car_outlined),label: appTitle[0]),
-            BottomNavigationBarItem(icon: Icon(Icons.flash_auto_outlined),label: appTitle[1]),
-            BottomNavigationBarItem(icon: Icon(Icons.car_repair_outlined),label: appTitle[2]),
-            BottomNavigationBarItem(icon: Icon(Icons.person_outline),label: appTitle[3]),
-          ],
-      ),*/
       appBar: AppBar(
         actions: [
-          index!=3?Padding(
-            padding: const EdgeInsets.only(right: 20.0),
-            child: CircleAvatar(
-              radius: 25,
-              backgroundImage: AssetImage('assets/SSimage/s1.png'),
-            ),
-          ):SizedBox(),
+          المؤشر != 3
+              ? Padding(
+                  padding: const EdgeInsets.only(right: 20.0),
+                  child: CircleAvatar(
+                    radius: 25,
+                    backgroundImage: AssetImage('assets/SSimage/s1.png'),
+                  ),
+                )
+              : SizedBox(),
         ],
         backgroundColor: Colors.black,
         centerTitle: true,
-        title: Text(appTitle[index],style: TextStyle(fontSize: 25,color: Colors.white,fontWeight: FontWeight.bold),),
+        title: Text(
+          عناوين_التطبيق[المؤشر],
+          style: TextStyle(fontSize: 25, color: Colors.white, fontWeight: FontWeight.bold),
+        ),
       ),
-      body: appScreens[index],
+      body: شاشات_التطبيق[المؤشر],
     );
   }
 }
