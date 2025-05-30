@@ -58,13 +58,13 @@ class _LoginScreenState extends State<LoginScreen> {
 
                       // Username Field
                       defaultEditText(
-                        hintText: 'User Name',
+                        hintText: 'اسم المستخدم',
                         controller: _loginController,
                       ),
 
                       // Password Field
                       defaultEditText(
-                        hintText: 'Password',
+                        hintText: 'كلمة السر',
                         controller: _passwordController,
                          obscureText: true, // For password hiding
                       ),
@@ -84,7 +84,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           padding: const EdgeInsets.symmetric(horizontal: 100, vertical: 10),
                         ),
                         child: const Text(
-                          "Login",
+                          "تسجيل دخول",
                           style: TextStyle(fontSize: 16, color: Colors.white),
                         ),
                       ),
@@ -106,7 +106,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                 );
                               },
                               child: const Text(
-                                'Sign Up',
+                                'انشاء حساب',
                                 style: TextStyle(color: Colors.white),
                               ),
                             ),
