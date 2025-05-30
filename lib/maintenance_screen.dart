@@ -10,38 +10,38 @@ class _MaintenanceScreenState extends State<MaintenanceScreen>
   late TabController _tabController;
 
   final List<String> categories = [
-    "Cleaning",
-    "Engine Repair",
-    "Electrical",
-    "Tires & Wheels",
-    "Other Services"
+    "تنظيف",
+    "إصلاح المحرك",
+    "كهرباء",
+    "الإطارات والعجلات",
+    "خدمات أخرى"
   ];
 
   final List<List<Map<String, String>>> maintenanceServices = [
     [
-      {'name': 'Exterior Hand Wash', 'price': '50EGP'},
-      {'name': 'Interior Vacuuming', 'price': '40EGP'},
-      {'name': 'Waxing & Polishing', 'price': '150EGP'},
+      {'name': 'غسيل خارجي يدوي', 'price': '50 جنيه'},
+      {'name': 'تنظيف داخلي بالمكنسة', 'price': '40 جنيه'},
+      {'name': 'تلميع وتشقير', 'price': '150 جنيه'},
     ],
     [
-      {'name': 'OBD-II Scanner Reading', 'price': '30EGP'},
-      {'name': 'Engine Performance Analysis', 'price': '50EGP'},
-      {'name': 'Oil Change', 'price': '40EGP'},
+      {'name': 'قراءة ماسح OBD-II', 'price': '30 جنيه'},
+      {'name': 'تحليل أداء المحرك', 'price': '50 جنيه'},
+      {'name': 'تغيير زيت', 'price': '40 جنيه'},
     ],
     [
-      {'name': 'Battery Testing', 'price': '90EGP'},
-      {'name': 'Starter Motor Repair', 'price': '180EGP'},
-      {'name': 'Alternator Replacement', 'price': '150EGP'},
+      {'name': 'اختبار البطارية', 'price': '90 جنيه'},
+      {'name': 'إصلاح بادئ التشغيل', 'price': '180 جنيه'},
+      {'name': 'تغيير الدينامو', 'price': '150 جنيه'},
     ],
     [
-      {'name': 'Tire Rotation', 'price': '70EGP'},
-      {'name': 'Rim Polishing', 'price': '60EGP'},
-      {'name': 'Wheel Alignment', 'price': '100EGP'},
+      {'name': 'تدوير الإطارات', 'price': '70 جنيه'},
+      {'name': 'تلميع الجنط', 'price': '60 جنيه'},
+      {'name': 'وزن الزوايا', 'price': '100 جنيه'},
     ],
     [
-      {'name': 'Air Conditioning Service', 'price': '120EGP'},
-      {'name': 'Rust Protection Treatment', 'price': '150EGP'},
-      {'name': 'Odor Removal', 'price': '80EGP'},
+      {'name': 'خدمة التكييف', 'price': '120 جنيه'},
+      {'name': 'معالجة الحماية من الصدأ', 'price': '150 جنيه'},
+      {'name': 'إزالة الروائح', 'price': '80 جنيه'},
     ],
   ];
 
@@ -53,27 +53,30 @@ class _MaintenanceScreenState extends State<MaintenanceScreen>
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.black,
-      appBar: AppBar(
+    return Directionality(
+      textDirection: TextDirection.rtl, // لجعل الاتجاه من اليمين لليسار
+      child: Scaffold(
         backgroundColor: Colors.black,
-        elevation: 0,
-        toolbarHeight: 0,
-        bottom: TabBar(
-          controller: _tabController,
-          isScrollable: true,
-          indicatorColor: Colors.red,
-          labelStyle: TextStyle(fontSize: 16, fontWeight: FontWeight.bold,color: Colors.white),
-          tabs: categories
-              .map((category) => Tab(text: category))
-              .toList(),
+        appBar: AppBar(
+          backgroundColor: Colors.black,
+          elevation: 0,
+          toolbarHeight: 0,
+          bottom: TabBar(
+            controller: _tabController,
+            isScrollable: true,
+            indicatorColor: Colors.red,
+            labelStyle: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.white),
+            tabs: categories
+                .map((category) => Tab(text: category))
+                .toList(),
+          ),
         ),
-      ),
-      body: TabBarView(
-        controller: _tabController,
-        children: List.generate(categories.length, (index) {
-          return _buildServiceList(maintenanceServices[index]);
-        }),
+        body: TabBarView(
+          controller: _tabController,
+          children: List.generate(categories.length, (index) {
+            return _buildServiceList(maintenanceServices[index]);
+          }),
+        ),
       ),
     );
   }
@@ -97,9 +100,9 @@ class _MaintenanceScreenState extends State<MaintenanceScreen>
         leading: Icon(Icons.car_repair, color: Colors.black),
         title: Text(service['name']!,
             style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black)),
-        subtitle: Text("Price: ${service['price']}",
+        subtitle: Text("السعر: ${service['price']}",
             style: TextStyle(color: Colors.black54)),
-        trailing: Icon(Icons.arrow_forward_ios, color: Colors.black54),
+        trailing: Icon(Icons.arrow_back_ios, color: Colors.black54),
         onTap: () {
           _showServiceDetails(service);
         },
@@ -122,7 +125,7 @@ class _MaintenanceScreenState extends State<MaintenanceScreen>
               Text(service['name']!,
                   style: TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold)),
               SizedBox(height: 10),
-              Text("Price: ${service['price']}",
+              Text("السعر: ${service['price']}",
                   style: TextStyle(color: Colors.red, fontSize: 18)),
               SizedBox(height: 20),
               ElevatedButton.icon(
@@ -133,13 +136,12 @@ class _MaintenanceScreenState extends State<MaintenanceScreen>
                   padding: EdgeInsets.symmetric(vertical: 12, horizontal: 24),
                 ),
                 icon: Icon(Icons.check_circle, color: Colors.white),
-                label: Text("Confirm Service", style: TextStyle(fontSize: 16)),
+                label: Text("تأكيد الخدمة", style: TextStyle(fontSize: 16)),
                 onPressed: () {
                   Navigator.pop(context);
                   ScaffoldMessenger.of(context).showSnackBar(
                     SnackBar(
-                      content:
-                      Text('${service['name']} added to your order!'),
+                      content: Text('${service['name']} تمت إضافتها إلى طلبك!'),
                       backgroundColor: Colors.green,
                     ),
                   );
