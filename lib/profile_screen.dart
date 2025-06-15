@@ -82,7 +82,20 @@ class ProfileScreen extends StatelessWidget {
   Widget _buildProfileOptions(BuildContext context) {
     return Column(
       children: [
-        _buildOptionTile(Icons.person, "تعديل الحساب", () {}),
+      _buildOptionTile(Icons.person, "تعديل الملف الشخصي", () {
+  Navigator.of(context).push(
+    MaterialPageRoute(
+      builder: (context) => EditProfileScreen(
+        name: "احمد سامي",
+        email: "ahmed.samy@email.com",
+        phone: "01012345678",
+        password: "12345678",
+        address: "القاهرة، مصر",
+      ),
+    ),
+  );
+}),
+
         _buildOptionTile(Icons.security, "اعدادات الخصوصية", () {}),
         _buildOptionTile(Icons.payment, "طرق الدفع", () {}),
         _buildOptionTile(Icons.notifications, "اعدادات الاشعارات", () {}),
